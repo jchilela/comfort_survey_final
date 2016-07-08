@@ -1,0 +1,673 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Comfort Survey</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    
+    <!-- CSS Style-->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}" type="text/css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/creative.css' %}" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top">
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Thermal comfort survey</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <!--div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#services">Services</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div-->
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <header>
+            
+
+        <div class="header-content">
+            <!--div class="header-content-inner">
+                <h1>Your Favorite Source of Free Bootstrap Themes</h1>
+                <hr>
+                <p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>
+                <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+            </div-->
+
+
+                <center>
+
+                <div class="col-md-3 col-sm-6 portfolio-item" style="margin-left:10%;">
+                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal" onclick="ocupant_ident_set();">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <h3>Occupant Identification</h3>
+                    </a>
+                    
+                </div>
+
+                <div class="col-md-3 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal" onclick="gen_th_set();">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <h3>General Thermal Comfort</h3>
+                    </a>
+                    
+                </div>
+                
+                <div class="col-md-3 col-sm-6 portfolio-item">
+                    <a href="/strategies" class="portfolio-link" data-toggle="modal" onclick="load_strategies();">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <h3>Start Strategies</h3>
+                    </a>
+                    
+                </div>
+
+                <!--div class="col-md-3 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <h3>Occupance Periods</h3>
+                    </a>
+                    
+                </div-->
+</center>
+
+        </div>
+
+
+
+    </header>
+
+    <!--section class="bg-primary" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">We've got what you need!</h2>
+                    <hr class="light">
+                    <p class="text-faded">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>
+                    <a href="#" class="btn btn-default btn-xl">Get Started!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">At Your Service</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-diamond wow bounceIn text-primary"></i>
+                        <h3>Sturdy Templates</h3>
+                        <p class="text-muted">Our templates are updated regularly so they don't break.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-paper-plane wow bounceIn text-primary" data-wow-delay=".1s"></i>
+                        <h3>Ready to Ship</h3>
+                        <p class="text-muted">You can use this theme as is, or you can make changes!</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-newspaper-o wow bounceIn text-primary" data-wow-delay=".2s"></i>
+                        <h3>Up to Date</h3>
+                        <p class="text-muted">We update dependencies to keep things fresh.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-heart wow bounceIn text-primary" data-wow-delay=".3s"></i>
+                        <h3>Made with Love</h3>
+                        <p class="text-muted">You have to make your websites with love these days!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="no-padding" id="portfolio">
+        <div class="container-fluid">
+            <div class="row no-gutter">
+                <div class="col-lg-4 col-sm-6">
+                    <a href="#" class="portfolio-box">
+                        <img src="{% static 'img/portfolio/1.jpg' %}" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="#" class="portfolio-box">
+                        <img src="{% static 'img/portfolio/2.jpg' %}" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="#" class="portfolio-box">
+                        <img src="{% static 'img/portfolio/3.jpg' %}" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="#" class="portfolio-box">
+                        <img src="{% static 'img/portfolio/4.jpg' %}" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="#" class="portfolio-box">
+                        <img src="{% static 'img/portfolio/5.jpg' %}" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="#" class="portfolio-box">
+                        <img src="{% static 'img/portfolio/6.jpg' %}" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <aside class="bg-dark">
+        <div class="container text-center">
+            <div class="call-to-action">
+                <h2>Free Download at Start Bootstrap!</h2>
+                <a href="#" class="btn btn-default btn-xl wow tada">Download Now!</a>
+            </div>
+        </div>
+    </aside>
+
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">Let's Get In Touch!</h2>
+                    <hr class="primary">
+                    <p>Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
+                </div>
+                <div class="col-lg-4 col-lg-offset-2 text-center">
+                    <i class="fa fa-phone fa-3x wow bounceIn"></i>
+                    <p>123-456-6789</p>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
+                    <p><a href="mailto:your-email@your-domain.com">feedback@startbootstrap.com</a></p>
+                </div>
+            </div>
+        </div>
+    </section-->
+
+ <!-- Portfolio Modal 3 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container" style="width:80%; margin-top:10%; height:800px;">
+                <div class="row" >
+                    <div class="col-lg-8 col-lg-offset-2" >
+                        <div class="modal-body">
+                            <!-- Project Details Go Here -->
+                            <h2>Occupant Identification</h2>
+
+                            <label class="control-label col-sm-2" for="pwd">Age:</label>
+                              <div class="col-sm-9">          
+                               <select class="form-control input-sm" id="age" name = "Age">
+                                  <option></option>
+                                  <option>14</option>
+                                  <option selected>15</option>
+                                  <option>16</option>
+                                  <option>17</option>
+                                  <option>18</option>
+                                  <option>19</option>
+                                  <option>20</option>
+                                  <option>21</option>
+                                  <option>22</option>
+                                  <option>23</option>
+                                  <option>24</option>
+                                  <option>25</option>
+                                  <option>26</option>
+                                  <option>27</option>
+                                  <option>28</option>
+                                  <option>29</option>
+                                  <option>30</option>
+                                  <option>31</option>
+                                  <option>32</option>
+                                  <option>33</option>
+                                  <option>34</option>
+                                  <option>35</option>
+                                  <option>36</option>
+                                  <option>37</option>
+                                  <option>38</option>
+                                  <option>39</option>
+                                  <option>40</option>
+                                  <option>41</option>
+                                  <option>42</option>
+                                  <option>43</option>
+                                  <option>44</option>
+                                  <option>45</option>
+                                  <option>46</option>
+                                  <option>47</option>
+                                  <option>48</option>
+                                  <option>49</option>
+                                  <option>50</option>
+                                  <option>51</option>
+                                  <option>52</option>
+                                  <option>53</option>
+                                  <option>54</option>
+                                  <option>55</option>
+                                  <option>56</option>
+                                  <option>57</option>
+                                  <option>58</option>
+                                  <option>59</option>
+                                  <option>60</option>
+                                  <option>61</option>
+                                  <option>62</option>
+                                  <option>63</option>
+                                  <option>64</option>
+                                  <option>65</option>
+                                  <option>66</option>
+                                  <option>67</option>
+                                  <option>68</option>
+                                  <option>69</option>
+                                  <option>70</option>
+                                  <option>71</option>
+                              </select>
+                              <br>
+                              </div>
+                             
+
+                                 <label class="control-label col-sm-2" for="pwd">Gender:</label>
+                                      <div class="col-sm-9">          
+                                       <select class="form-control input-sm" id="gender" name = "Gender">
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                      </select>
+                                      <br>
+                                </div>
+                            <label class="control-label col-sm-2" for="email">Weight/Kg:</label>
+                                 <div class="col-sm-9">          
+                                    <input type="text" class="form-control" id="weight" name = "Weight" >
+                                    <br>
+                            </div>
+
+                            <div class="col-sm-9" >          
+                                   
+
+                            <center><a href="#portfolioModal4" class="portfolio-link" data-toggle="modal" role="button" onclick="ocupant_ident_save();">Next</a></center>
+
+                                    
+                                       
+                                      <br>
+                                </div>
+
+                            <div class="col-sm-9">          
+
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                                </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+ <!-- Portfolio Modal 4 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container" style="width:80%; margin-top:10%; height:800px;">
+                <div class="row" >
+                    <div class="col-lg-8 col-lg-offset-2" >
+                        <div class="modal-body">
+                            <!-- Project Details Go Here -->
+                            <h2>General Thermal Comfort</h2>
+
+                            <label class="control-label col-sm-2" for="pwd">Thermal Comfort:</label>
+                              <div class="col-sm-9">          
+                               <select class="form-control input-sm" id="tcomfort" name = "Comfort">
+                                           <option selected>Cold</option>
+                                            <option>Cool</option>
+                                            <option>Slightly cool</option>
+                                            <option>Neutral</option>
+                                            <option>Slightly warm</option>
+                                            <option>Warm</option>
+                                            <option>Hot</option>
+                                       
+                              </select>
+                              <br>
+                              </div>
+                             
+                 <form class="form-horizontal" role="form" method="POST">{% csrf_token %}{{form.errors}}
+
+                             <div class="form-group">
+                            <label class="control-label col-sm-2" for="email">Preference:</label>
+                                 <div class="col-sm-9">          
+                                    <input type="text" class="form-control" id="pref" name = "preference" >
+                                    <br>
+                            </div>
+                             <label class="control-label col-sm-2" for="email">Maximum Temperature:</label>
+                                 <div class="col-sm-9">          
+                                    <input type="text" class="form-control" id="acept" name = "maximum" >
+                                    <br>
+                            </div>
+                             <label class="control-label col-sm-2" for="email">Minimum Temperature:</label>
+                                 <div class="col-sm-9">          
+                                    <input type="text" class="form-control" id="sens" name = "minimum" >
+                                    <br>
+                            </div>
+                             <label class="control-label col-sm-2" for="pwd">Occupant B. Action:</label>
+                              <div class="col-sm-9">          
+                               <select class="form-control input-sm" id="oba" name = "Comfort">
+                                           <option selected>Open or Close Door/Window</option>
+                                            <option>Putting On/Off the AC</option>
+                                       
+                              </select>
+                              <br>
+                              </div>
+                              <hr>
+
+<label class="control-label col-sm-2" for="email">Arrived time:</label>
+                                 <div class="col-sm-9">          
+                                    <input type="text" class="form-control" id="atime" name = "atime" >
+                                    <br>
+                            </div>
+<label class="control-label col-sm-2" for="email">Departure time:</label>
+                                 <div class="col-sm-9">          
+                                    <input type="text" class="form-control" id="dtime" name = "dtime" >
+                                    <br>
+                            </div>
+
+
+
+                              <div class="col-sm-9" >          
+                                    <center><button type="submit" class="btn btn-info" role="button" onclick="gen_th_save();">Save and Close</button></center>
+                                       
+                                      <br>
+                                </div>
+
+                            <!--div class="col-sm-9" >          
+                                    <center><button href="#" class="btn btn-info" role="button" onclick="gen_th_save();" data-dismiss="modal">Save and Close</a></center>
+                                       
+                                      <br>
+                                </div-->
+                        </div>
+                                
+                    </form>
+
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+<!-- Portfolio Modal 5 Strategies-->
+    <!--div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container" style="width:80%; margin-top:10%; height:800px;">
+                <div class="row" >
+                    <div class="col-lg-8 col-lg-offset-2" >
+
+                
+
+ 
+   
+                        <div class="modal-body">
+                            <form class="form-horizontal" role="form" method="POST">{% csrf_token %}
+                                                {{form.errors}}
+                                                     <div class="form-group">
+                                                    <p><p>
+
+                                                    
+                                                    <div class="col-sm-9">          
+                                                    <input type="text" class="form-control" id="preference" name = "preference" value="75" >
+                                                    <center></center><p><h2>Strategies</h2></p>
+                                                  </div>
+
+
+
+                            Project Details Go Here >
+                                                    
+                            <div class="col-sm-9" >          
+                                    <center><button type="submit" class="btn btn-info" role="button" onclick="gen_th_save();">Start</button></center>
+                                       
+                                      <br>
+                                </div>
+                            <div class="col-sm-9" >          
+                                    <center><a href="#" class="btn btn-info" role="button" onclick="gen_th_save();" desabled>Strategy 1</a></center>
+                                       
+                                      <br>
+                                </div>
+
+                                <div class="col-sm-9" >          
+                                    <center><a href="#" class="btn btn-info" role="button" onclick="gen_th_save();">Strategy 2</a></center>
+                                       
+                                      <br>
+                                </div>
+                                <div class="col-sm-9" >          
+                                    <center><a href="#" class="btn btn-info" role="button" onclick="gen_th_save();">Strategy 3</a></center>
+                                       
+                                      <br>
+                                </div>
+                                <div class="col-sm-9" >          
+                                    <center><a href="#" class="btn btn-info" role="button" onclick="gen_th_save();">Strategy 4</a></center>
+                                       
+                                      <br>
+                                </div>
+
+
+                            <div id="myProgress" style="margin-top:55%;">
+                              <div id="myBar" >
+                                <div id="label" >10%</div>
+                                <br>
+                              </div>
+                              <br>
+                            </div>
+
+                                <div class="col-sm-9">          
+                                        <br>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                                </div>
+                    
+
+                    </div>
+
+                </form>
+                        </div>
+                 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div-->
+
+
+
+
+
+
+
+    <script src="{% static 'js/local_save.js' %}"></script>
+    <script src="{% static 'js/strategies.js' %}"></script>
+
+
+    <!-- jQuery -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{% static 'js/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'js/jquery.fittext.js' %}"></script>
+    <script src="{% static 'js/wow.min.js' %}"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{% static 'js/creative.js' %}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,161 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="" href="#">
+
+
+  <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    
+    <!-- CSS Style-->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}" type="text/css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/creative.css' %}" type="text/css">
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+
+<!--SOCKETS REQUIREMENTS-->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/0.3.4/sockjs.min.js"></script>
+
+
+
+<!--script type="text/javascript">
+var cacheData;
+var data = $('#percentagem').html();
+
+var auto_refresh = setInterval(function(e){
+
+  $.ajax({
+    url: 'http://172.26.50.120/test.php',
+    type: 'POST',
+    data: data,
+    dataType: 'html',
+    success: function(data){
+      if (data !== cacheData){
+        cacheData = data;
+        $('#percentagem').html(data);
+      }
+    }
+  })
+}, 300);
+
+var counter = 0;
+window.setInterval("refreshDiv()", 500);
+function refreshDiv(){
+  counter = counter + 1;
+  document.getElementById('test').innerHTML = "Testing" + counter;
+}
+
+</script-->
+
+
+
+  </head>
+<!--onload="load_strategies();"-->
+  <body onload="changebarstatus();">
+
+
+
+<!-- Portfolio Modal 5 Strategies-->
+    <div >
+        <div>
+            <div  data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container" style="width:80%; margin-top:10%; height:800px;">
+                <div class="row" >
+                    <div class="col-lg-8 col-lg-offset-2" >
+
+                     <div class="modal-body">
+                        <form class="form-horizontal" role="form" method="POST">{% csrf_token %}{{form.errors}}
+                                    <div class="form-group">
+                                                    <p><p>                                                   
+                            <div class="col-sm-9">  
+                                    <center><p><h2>Strategy 4</h2></p></center>
+                            </div>
+
+                            <!-- Project Details Go Here -->                        
+                            <div class="col-sm-9" > 
+                            <p></p>         
+                                    <center><button type="submit" id="submit_Value" class="btn btn-info" >Stop</a></center>
+                                       
+                                      <br>
+                                </div>
+                                <div class="col-sm-9" >          
+                                    <center><a href="/" class="btn btn-info" id="st3" role="button">Finish</a></center>
+                                       
+                                      <br>
+                                </div>
+
+
+                            <div id="myProgress" style="margin-top:40%;">
+                              <div id="myBar" >
+                                <div id="label" >10%</div>
+                                <br>
+                              </div>
+                              <br>
+                            </div>
+                           
+                    
+
+                    </div>
+
+                </form>
+                        </div>
+                 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{% static 'js/local_save.js' %}"></script>
+    <script src="{% static 'js/strategies.js' %}"></script>
+
+
+    <!-- jQuery -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{% static 'js/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'js/jquery.fittext.js' %}"></script>
+    <script src="{% static 'js/wow.min.js' %}"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{% static 'js/creative.js' %}"></script>
+  </body>
+</html>
