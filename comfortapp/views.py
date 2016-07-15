@@ -59,7 +59,7 @@ def load_one_message():
 	channel = connection.channel()
 	corpo =""
 	# Get ten messages and break out
-	for method_frame, properties, body in channel.consume('hello'):
+	for method_frame, properties, body in channel.consume('periodic_data'):
 
 	    # Display the message parts
 	    print method_frame
@@ -115,6 +115,33 @@ def changing_values(queue, message):
 	connection.close()
 
 
+	#Threads
+def save_envmeasurements():
+	import time
+	import json
+	while True:
+		measures = load_one_message()
+		d = json.loads(measures)
+		#print temperature
+		temperature = d['temperature']
+		humidity = d['humidity']
+		co = d['co2']
+		time2 = d['time']
+		date= datetime.datetime.now() # import the  time and date
+		try:
+			conn=psycopg2.connect("host='172.26.50.120' dbname='postgres' user='postgres' password='postgres'")  # connect to the server
+			cur = conn.cursor() # create the cursor
+			try:
+				cur.execute('insert into envmeasurements values (%s , %s, %s, %s)' %(temperature,humidity,co,time2))
+				print 'inserted'
+				conn.commit()
+			
+			except Exception, e:
+				print 'erro',e
+		except Exception, e:
+			print e
+		time.sleep(14)
+
 # Create your views here.
 
 def home(request):
@@ -130,6 +157,10 @@ def home(request):
 			print request.session['preference']
 
 	#If the variable session exist 
+	import threading # importing the library
+	t = threading.Thread(target=save_envmeasurements, args=(), kwargs={})
+	t.setDaemon(True)
+	t.start() # start the threading at the same time as the home page
 	return render(request,template)
 
 
@@ -246,6 +277,20 @@ def st4(request):
 	#print 'single', loading
 
 	return render(request,template)
+
+
+
+
+def viewdata(request):
+	template = 'viewdata.html'
+	return render(request,template)
+
+
+def viewenvmeasurements(request):
+	template = 'viewdata.html'
+	return render(request,template)
+
+
 
 
 def insert_database(action, val):

@@ -21,6 +21,9 @@ urlpatterns = [
     url(r'^st2', 'comfortapp.views.st2', name='st2'),
     url(r'^st3', 'comfortapp.views.st3', name='st3'),
     url(r'^st4', 'comfortapp.views.st4', name='st4'),
+    url(r'^viewdata', 'comfortapp.views.viewdata', name='viewdata'),
+    url(r'^viewenvmeasurements', 'comfortapp.views.viewenvmeasurements', name='viewenvmeasurements'),
+
 
 
 
