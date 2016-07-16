@@ -10,6 +10,7 @@ import datetime
 from django.utils import timezone
 import json 
 import psycopg2
+from django.db import connection
 
 from rest_framework import viewsets
 from .serializers import TaskSerializer
@@ -178,7 +179,6 @@ def strategies(request):
 
 
 
-
 def st1(request):
 	preference = ''
 	try:
@@ -279,16 +279,42 @@ def st4(request):
 	return render(request,template)
 
 
+def dictfetchall(cursor):
+	desc = cursor.description
+	return [dict(zip([call[0] for call in desc],raw)) for raw in cursor.fetchall()]
+
+def get_ca_survey():
+	try:		
+		conn=psycopg2.connect("host='172.26.50.120' dbname='postgres' user='postgres' password='postgres'")  # connect to the server
+		cur = conn.cursor() # create the cursor
+		cur.execute("select * from ca_survey")
+		#conn.commit()
+		return dictfetchall(cur)
+	except Exception, e:
+		print 'erro',e
+
+def get_measurements():
+	try:		
+		conn=psycopg2.connect("host='172.26.50.120' dbname='postgres' user='postgres' password='postgres'")  # connect to the server
+		cur = conn.cursor() # create the cursor
+		cur.execute("select * from envmeasurements")
+		#conn.commit()
+		return dictfetchall(cur)
+	except Exception, e:
+		print 'erro',e
+
+		
+def viewenvmeasurements(request):
+	template = 'viewenvmeasurements.html'
+	resultado = get_measurements()
+	return render(request,template,{'resultado':resultado})
 
 
 def viewdata(request):
 	template = 'viewdata.html'
-	return render(request,template)
-
-
-def viewenvmeasurements(request):
-	template = 'viewdata.html'
-	return render(request,template)
+	resultado = get_ca_survey()
+	#print resultado
+	return render(request,template,{'resultado':resultado})
 
 
 

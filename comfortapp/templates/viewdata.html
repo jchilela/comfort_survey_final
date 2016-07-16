@@ -88,24 +88,49 @@ function refreshDiv(){
                     <div class="col-lg-8 col-lg-offset-2" >
 
                      <div class="modal-body">
-                        <form class="form-horizontal" role="form" method="POST">{% csrf_token %}{{form.errors}}
-                                    <div class="form-group">
-                                                    <p><p>                                                   
-                            <div class="col-sm-9">  
-                                    <center><p><h2>Strategy 1</h2></p></center>
-
-                            <label>Value to Increase</label>        
-                                <input type="text" class="form-control" id="new_value" name = "preference" >
-
-                            </div>
-
-                            <!-- Project Details Go Here -->                        
-                
+ </form> 
+                          {%if resultado%}
+                          <div class="table-responsive">   
+                          <table class="table table-hover">
+                           <thead>
+                              <tr> 
+                                <th>Age</th>
+                                <th>gender</th>
+                                <th>weight</th>
+                                <th>atime</th>
+                                <th>dtime</th>
+                                 <th>tcomfort</th>
+                                 <th>acept</th>
+                                 <th>pref</th>
+                                 <th>sensibility</th>
+                              </tr>
+                            </thead>
+                           {% for resultado in resultado %}
+                            <tbody>
+                              <tr>
+                                <td>{{resultado.idade}}</td>
+                                <td>{{resultado.gender}}</td>
+                                <td>{{resultado.weight}}</td>
+                                <td>{{resultado.atime}}</td>
+                                <td>{{resultado.dtime}}</td>
+                                <td>{{resultado.tcomfort}}</td>
+                                <td>{{resultado.acept}}</td>
+                                <td>{{resultado.pref}}</td>
+                                <td>{{resultado.sens}}</td>
+                                 {% endfor %}
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        {%endif%}
                     
 
                     </div>
 
                 </form>
+
+
+                  
                         </div>
                  
                     </div>

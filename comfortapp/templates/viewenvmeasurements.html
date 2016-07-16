@@ -88,19 +88,38 @@ function refreshDiv(){
                     <div class="col-lg-8 col-lg-offset-2" >
 
                      <div class="modal-body">
-                        <form class="form-horizontal" role="form" method="POST">{% csrf_token %}{{form.errors}}
-                                    <div class="form-group">
-                                                    <p><p>                                                   
-                            <div class="col-sm-9">  
-                                    <center><p><h2>Strategy 1</h2></p></center>
+                            
+                        </form> 
+                          {%if resultado%}
+                          <div class="table-responsive">   
+                          <table class="table table-hover">
+                           <thead>
+                              <tr> 
+                                <th>Temperature</th>
+                                <th>Humidity</th>
+                                <th>Co2</th>
+                                <th>Time</th>
+                                
+                              </tr>
+                            </thead>
+                           {% for resultado in resultado %}
+                            <tbody>
+                              <tr>
+                                <td>{{resultado.temperature}}</td>
+                                <td>{{resultado.humidity}}</td>
+                                <td>{{resultado.co}}</td>
+                                <td>{{resultado.time}}
+                                  
 
-                            <label>Value to Increase</label>        
-                                <input type="text" class="form-control" id="new_value" name = "preference" >
+                                   {{ resultado.time|date:"g:i a" }}
 
-                            </div>
-
-                           
-                           
+                                </td>
+                                 {% endfor %}
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        {%endif%}
                     
 
                     </div>
