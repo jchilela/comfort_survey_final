@@ -469,7 +469,7 @@
                             <!-- Project Details Go Here -->
                             <h2>General Thermal Comfort</h2>
 
-                            <label class="control-label col-sm-2" for="pwd">Thermal Comfort:</label>
+                            <label class="control-label col-sm-2" for="pwd">What is your comfort level now?:</label>
                               <div class="col-sm-9">          
                                <select class="form-control input-sm" id="tcomfort" name = "Comfort">
                                            <option selected>Cold</option>
@@ -487,26 +487,26 @@
                  <form class="form-horizontal" role="form" method="POST">{% csrf_token %}{{form.errors}}
 
                              <div class="form-group">
-                            <label class="control-label col-sm-2" for="email">Preference:</label>
+                            <label class="control-label col-sm-2" for="email">Your temperature preference?:</label>
                                  <div class="col-sm-9">          
                                     <input type="text" class="form-control" id="pref" name = "preference" >
                                     <br>
                             </div>
-                             <label class="control-label col-sm-2" for="email">Maximum Temperature:</label>
+                             <label class="control-label col-sm-2" for="email">Your maximum temp setting at home:</label>
                                  <div class="col-sm-9">          
                                     <input type="text" class="form-control" id="acept" name = "maximum" >
                                     <br>
                             </div>
-                             <label class="control-label col-sm-2" for="email">Minimum Temperature:</label>
+                             <label class="control-label col-sm-2" for="email">Your minimum temp setting at home:</label>
                                  <div class="col-sm-9">          
                                     <input type="text" class="form-control" id="sens" name = "minimum" >
                                     <br>
                             </div>
-                             <label class="control-label col-sm-2" for="pwd">Occupant B. Action:</label>
+                             <label class="control-label col-sm-2" for="pwd">– When you feel uncomfortable, what action do you take?:</label>
                               <div class="col-sm-9">          
                                <select class="form-control input-sm" id="oba" name = "Comfort">
-                                           <option selected>Open or Close Door/Window</option>
-                                            <option>Putting On/Off the AC</option>
+                                           <option selected>Open/Close the door/window</option>
+                                            <option>Turning On/Off the AC</option>
                                        
                               </select>
                               <br>
